@@ -1,0 +1,14 @@
+{
+    "buidls":[
+        {
+            "src":"index.js",
+            "use":"@vercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            
+        }
+    ]
+}
