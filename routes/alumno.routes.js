@@ -4,6 +4,7 @@ const AlumnoService = require('../services/alumno.services');
 const boom = require('@hapi/boom');
 
 const validatorHandler = require('../middlewares/validator.handler');
+const {verifyToken} = require('../middlewares/auth.handler');
 const {createAlumnoSchema,updateAlumnoSchema} = require('../schemas/alumno.schema');
 
 function alumnoApi(app){
@@ -12,7 +13,7 @@ function alumnoApi(app){
 
     const objAlumnoService = new AlumnoService();
 
-    router.get('/',async function(req,res){
+    router.get('/',verifyToken,async function(req,res){
         try{
             const alumnos = await objAlumnoService.getAll();
             res.status(200).json({
