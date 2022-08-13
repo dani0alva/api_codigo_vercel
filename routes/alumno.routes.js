@@ -13,7 +13,8 @@ function alumnoApi(app){
 
     const objAlumnoService = new AlumnoService();
 
-    router.get('/',verifyToken,async function(req,res){
+    //router.get('/',verifyToken,async function(req,res){
+        router.get('/',async function(req,res){
         try{
             const alumnos = await objAlumnoService.getAll();
             res.status(200).json({
